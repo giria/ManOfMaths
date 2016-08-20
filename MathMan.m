@@ -22,6 +22,34 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+  if (self = [super init]) {
+  
+     self.name = [decoder decodeObjectForKey:@"name"];
+     self.picture = [decoder decodeObjectForKey:@"picture"];
+     self.yearOfBirth = [[decoder decodeObjectForKey:@"yearOfBirth"] intValue];
+  
+  }
+    // Initialization should fail if there is no name
+    // TODO
+    
+    return self;
+
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+
+  [encoder encodeObject: _name forKey:@"name"];
+  [encoder encodeObject: _picture forKey:@"picture"];
+  [encoder encodeObject: @(_yearOfBirth) forKey:@"yearOfBirth"];
+ 
+
+}
+
+#pragma mark - Archiving Paths
+
+
 @end
 
 

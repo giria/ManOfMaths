@@ -8,7 +8,7 @@
 
 //#import <UIKit.h>
 
-@interface MathMan : NSObject {
+@interface MathMan : NSObject <NSCoding> {
     // protected instance variables (not recomennded )
 }
 

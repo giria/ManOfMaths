@@ -36,6 +36,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _nameTextField.delegate = self;
+    
+    
+    if ( self.man != nil ) {
+        self.navigationItem.title = self.man.name;
+        _nameTextField.text = self.man.name;
+        _photoImagView.image = self.man.picture;
+        // TODO set birthdate
+        
+        
+    }
+    
+    
+    
+    // Enable the Save button only if the text field has a valid name.
+    [self checkValidMealName ];
 }
 - (IBAction)saveButton:(UIBarButtonItem *)sender {
     
@@ -118,8 +133,15 @@
 }
 
 - (IBAction)cancel:(UIBarButtonItem *)sender {
+    // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
     
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    UINavigationController*  isPresentingInAddMathManMode =  (UINavigationController *) self.presentingViewController ;
+    if (isPresentingInAddMathManMode) {
+    
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:TRUE ];
+    }
 }
 
 @end

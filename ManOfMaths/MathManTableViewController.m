@@ -20,13 +20,27 @@
 @end
 
 @implementation MathManTableViewController {
-    //NSMutableArray * men ;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.men = [NSMutableArray array];
-    [self loadSampleMathMen];
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    // [self loadSampleMathMen];
+    
+    // Load any saved men, otherwise load sample data.
+    
+    NSMutableArray * savedMen = [self loadArchivedMen];
+    if (savedMen != nil) {
+        self.men = savedMen ;
+    } else {
+        [self loadSampleMathMen];
+    }
+    
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -90,25 +104,28 @@
 
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.men removeObjectAtIndex:indexPath.row ];
+        [self saveMen];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -124,26 +141,74 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ShowDetail"]) {
+          MathManViewController * mathManViewController =
+        (MathManViewController * ) segue.destinationViewController;
+        // Get the cell that generated this segue
+        MathManTableViewCell * selectedMathManCell = ( MathManTableViewCell *) sender;
+        NSIndexPath* indexPath = [self.tableView indexPathForCell:selectedMathManCell];
+        MathMan * selectedMathMan = self.men[indexPath.row];
+        mathManViewController.man = selectedMathMan;
+    
+    }else if ([[segue identifier] isEqualToString:@"AddItem"]) {
+        NSLog(@" Adding new MathMan");
+    }
 }
-*/
+
 
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)unwindSegue {
+    
+    
+    
+    
     UIViewController* sourceViewController = unwindSegue.sourceViewController;
-    MathMan* man = ((MathManViewController *) sourceViewController).man ;
-   // MathMan * man = [[ MathMan alloc] initWithName:@"Wiles" photo: @"Wiles" andYear:1925];
-    NSIndexPath * newIndexPath = [ NSIndexPath indexPathForRow: self.men.count inSection: 0];
-    [self.men addObject: man];
-    [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation: UITableViewRowAnimationFade ];
+    
+    NSIndexPath* selectedIndexPath =    [self.tableView indexPathForSelectedRow];
+    if (selectedIndexPath) {
+        // user is editing an existing cell
+        MathMan * man = ((MathManViewController*) sourceViewController).man;
+        self.men[selectedIndexPath.row] = man;
+        [self.tableView reloadRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    } else {
+        // Add a new meal
+        MathMan* man = ((MathManViewController *) sourceViewController).man ;
+        // MathMan * man = [[ MathMan alloc] initWithName:@"Wiles" photo: @"Wiles" andYear:1925];
+        NSIndexPath * newIndexPath = [ NSIndexPath indexPathForRow: self.men.count inSection: 0];
+        [self.men addObject: man];
+        [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation: UITableViewRowAnimationFade ];
+        
+        
+    }
+    // Save men to disk
+    [self saveMen];
+    
+
+        
+    }
+
+#pragma mark - NScoding
+- (void ) saveMen {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.men ];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"men"];
     
 }
+
+- (NSMutableArray * ) loadArchivedMen {
+    
+    NSData *menArrayData = [[NSUserDefaults standardUserDefaults] objectForKey:@"men"];
+    NSMutableArray * menArray = [NSKeyedUnarchiver unarchiveObjectWithData:menArrayData];
+    return menArray;
+}
+
+    
+
 
 
 @end
