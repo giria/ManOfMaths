@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OW4-2P-UFX">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Men of Mathematics-->
+        <scene sceneID="Gv3-Hh-CL6">
+            <objects>
+                <tableViewController id="99d-Lb-i3T" customClass="MathManTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="CD8-Yn-Dxg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MathManTableViewCell" rowHeight="90" id="SYJ-Hr-lBH" customClass="MathManTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SYJ-Hr-lBH" id="Nmi-OE-eVm">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto-1" translatesAutoresizingMaskIntoConstraints="NO" id="xIl-ap-Flw">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33k-Vv-UHI">
+                                            <rect key="frame" x="118" y="17" width="189" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi2-qw-vB9">
+                                            <rect key="frame" x="142" y="52" width="165" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="33k-Vv-UHI" id="7mh-g8-Dr5"/>
+                                    <outlet property="photo" destination="xIl-ap-Flw" id="ewf-Pi-cWa"/>
+                                    <outlet property="yearOfBirthLabel" destination="bi2-qw-vB9" id="eil-Sx-g3Q"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="fuS-dg-wuD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="99d-Lb-i3T" id="XTV-Fr-DXu"/>
+                            <outlet property="delegate" destination="99d-Lb-i3T" id="lnL-EM-oki"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Men of Mathematics" id="1oj-sG-y90">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YrY-Cy-hKR">
+                            <connections>
+                                <segue destination="xi3-ss-Y3H" kind="presentation" id="vdh-Xl-wKn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Hnb-OJ-SzN" id="lI3-Sl-gRB"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbq-7H-R7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Hnb-OJ-SzN">
+                    <connections>
+                        <outlet property="delegate" destination="99d-Lb-i3T" id="3Q1-yf-vPB"/>
+                        <outlet property="searchContentsController" destination="99d-Lb-i3T" id="bDw-26-nsT"/>
+                        <outlet property="searchResultsDataSource" destination="99d-Lb-i3T" id="ml4-iW-Eo7"/>
+                        <outlet property="searchResultsDelegate" destination="99d-Lb-i3T" id="ZGN-0c-gim"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="380" y="295"/>
+        </scene>
+        <!--New Math Man-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MathManViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FGt-H1-jZK">
+                                <rect key="frame" x="20" y="80" width="560" height="80"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter mathematician name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C97-uk-AUe">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfh-Y0-qaE">
+                                        <rect key="frame" x="0.0" y="50" width="141" height="30"/>
+                                        <state key="normal" title="Set default label text"/>
+                                        <connections>
+                                            <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZD-ic-Pil"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="C97-uk-AUe" firstAttribute="leading" secondItem="FGt-H1-jZK" secondAttribute="leading" id="AVV-lw-BY9"/>
+                                    <constraint firstAttribute="trailing" secondItem="C97-uk-AUe" secondAttribute="trailing" id="a8W-qf-czg"/>
+                                </constraints>
+                            </stackView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="defaultPhoto-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-sT-Od7">
+                                <rect key="frame" x="20" y="285" width="200" height="200"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="a8V-Ll-Cw2"/>
+                                    <constraint firstAttribute="width" secondItem="Xky-sT-Od7" secondAttribute="height" multiplier="1:1" id="exE-0r-FzH"/>
+                                    <constraint firstAttribute="width" constant="200" id="fak-y7-kHD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="jBI-1M-DeZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="zuS-Xj-6IJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="exE-0r-FzH"/>
+                                        <exclude reference="jBI-1M-DeZ"/>
+                                        <exclude reference="zuS-Xj-6IJ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bt2-jy-Nzd" appends="YES" id="cT4-rx-dw9"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="FGt-H1-jZK" secondAttribute="trailing" id="9AK-rO-REh"/>
+                            <constraint firstItem="Xky-sT-Od7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="TGf-FN-ttG"/>
+                            <constraint firstItem="FGt-H1-jZK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="c9S-Xf-Cy1"/>
+                            <constraint firstItem="FGt-H1-jZK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="inP-5f-YBc"/>
+                            <constraint firstItem="Xky-sT-Od7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="265" id="myK-0e-cyh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Math Man" id="fo0-ku-tHM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FM6-Jv-bU4">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="KBu-bI-vKC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="erK-U8-GJs">
+                            <connections>
+                                <action selector="saveButton:" destination="BYZ-38-t0r" id="xal-bU-qNE"/>
+                                <segue destination="5fP-BP-c7g" kind="unwind" unwindAction="prepareForUnwind:" id="DSP-zr-sEt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="C97-uk-AUe" id="sSI-5T-jt1"/>
+                        <outlet property="photoImagView" destination="Xky-sT-Od7" id="hep-XI-acf"/>
+                        <outlet property="saveButton" destination="erK-U8-GJs" id="h1o-Fp-ErA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="5fP-BP-c7g" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="bt2-jy-Nzd">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="UGi-Xj-8hO"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1745" y="318"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2rt-aU-DG1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-2P-UFX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JoQ-Od-zcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="99d-Lb-i3T" kind="relationship" relationship="rootViewController" id="9Q2-zy-BGS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yXP-Vg-x3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-432" y="295"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IJM-hC-2Lj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xi3-ss-Y3H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XN7-iL-hCa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7gl-Oo-wZO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jx8-Rz-dFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="694"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="defaultPhoto-1" width="540" height="540"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fuS-dg-wuD"/>
+    </inferredMetricsTieBreakers>
+</document>
