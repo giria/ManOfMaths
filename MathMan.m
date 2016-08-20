@@ -22,6 +22,18 @@
     return self;
 }
 
+
+- (instancetype) initWithName: (NSString*) name photoImage: (UIImage *) image andYear: (NSUInteger) year {
+    if (!(self = [super init]))
+        return nil;
+    self.name = name;
+    self.picture = image;
+    self.yearOfBirth = year;
+    
+    return self;
+}
+
+
 - (id)initWithCoder:(NSCoder *)decoder {
   if (self = [super init]) {
   

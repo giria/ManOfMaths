@@ -18,6 +18,7 @@
 
 - (instancetype) initWithName: (NSString*) name photo: (NSString *) photoName andYear: (NSUInteger) year;
 
+- (instancetype) initWithName: (NSString*) name photoImage: (UIImage *) image andYear: (NSUInteger) year;
 
 @end
 

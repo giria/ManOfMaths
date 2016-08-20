@@ -96,21 +96,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfh-Y0-qaE">
-                                        <rect key="frame" x="0.0" y="50" width="141" height="30"/>
-                                        <state key="normal" title="Set default label text"/>
-                                        <connections>
-                                            <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZD-ic-Pil"/>
-                                        </connections>
-                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter year of birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIC-0C-xHH">
+                                        <rect key="frame" x="0.0" y="50" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="eIC-0C-xHH" firstAttribute="leading" secondItem="FGt-H1-jZK" secondAttribute="leading" id="7nl-V9-uiW"/>
                                     <constraint firstItem="C97-uk-AUe" firstAttribute="leading" secondItem="FGt-H1-jZK" secondAttribute="leading" id="AVV-lw-BY9"/>
                                     <constraint firstAttribute="trailing" secondItem="C97-uk-AUe" secondAttribute="trailing" id="a8W-qf-czg"/>
+                                    <constraint firstAttribute="trailing" secondItem="eIC-0C-xHH" secondAttribute="trailing" id="rM2-r1-jc0"/>
                                 </constraints>
                             </stackView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="defaultPhoto-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-sT-Od7">
-                                <rect key="frame" x="20" y="285" width="200" height="200"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="defaultPhoto-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-sT-Od7">
+                                <rect key="frame" x="20" y="329" width="200" height="200"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="a8V-Ll-Cw2"/>
@@ -157,6 +157,7 @@
                         <outlet property="nameTextField" destination="C97-uk-AUe" id="sSI-5T-jt1"/>
                         <outlet property="photoImagView" destination="Xky-sT-Od7" id="hep-XI-acf"/>
                         <outlet property="saveButton" destination="erK-U8-GJs" id="h1o-Fp-ErA"/>
+                        <outlet property="yearOfBirth" destination="eIC-0C-xHH" id="C4k-3i-gPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

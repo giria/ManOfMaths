@@ -12,7 +12,9 @@
 @interface MathManViewController ()
 #pragma mark - Properties
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UILabel *mathNameLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *yearOfBirth;
+
 @property (weak, nonatomic) IBOutlet UIImageView *photoImagView;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
@@ -36,11 +38,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _nameTextField.delegate = self;
-    
+    _yearOfBirth.delegate = self;
     
     if ( self.man != nil ) {
         self.navigationItem.title = self.man.name;
         _nameTextField.text = self.man.name;
+        _yearOfBirth.text = [NSString stringWithFormat:@"%lu",  (unsigned long)self.man.yearOfBirth];          ;
         _photoImagView.image = self.man.picture;
         // TODO set birthdate
         
@@ -73,9 +76,7 @@
 
 
 #pragma mark - Actions
-- (IBAction)setDefaultLabelText:(UIButton *)sender {
-     //_mathNameLabel.text = @"Default Text";
-}
+ 
 
 - (IBAction)selectImageFromPhotoLibrary:(UITapGestureRecognizer *)sender {
     // Hide the keyboard.
@@ -113,7 +114,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    //_mathNameLabel.text = textField.text ;
+   
     [self checkValidMealName ];
     self.navigationItem.title = self.nameTextField.text;
     
@@ -123,11 +124,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // if ([[segue identifier] isEqualToString:@"YOUR_SEGUE_NAME_HERE"])
     NSString * name = _nameTextField.text;
-    NSUInteger * year = 1923;
+    NSUInteger * year = [_yearOfBirth.text integerValue];
     UIImage *  photo = _photoImagView.image;
     // Set the manMath to be passed to ManMathTableViewController after the unwind segue.
-    self.man = [[MathMan alloc] initWithName: name photo: @"Turing" andYear: year];
-    
+   // self.man = [[MathMan alloc] initWithName: name photo: @"Turing" andYear: year];
+    self.man = [[MathMan alloc] initWithName: name photoImage: _photoImagView.image andYear: year];
+   
     
     
 }
