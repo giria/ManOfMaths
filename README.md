@@ -1,0 +1,2 @@
+# ManOfMaths
+Company Exercise
