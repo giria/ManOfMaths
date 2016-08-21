@@ -4,8 +4,8 @@ First we will deal with the table: we will present a list of world-famous mathem
 
 
 
-<img src="/images/table.PNG" alt="Drawing" style="width: 100px;"/>
-<img src="/images/table.PNG" alt="Drawing" width="100">
+
+<img src="/images/table.PNG" alt="Drawing" width="200">
 
 After we have an editable and serializable list we can add the search functionality.
 
