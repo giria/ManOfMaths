@@ -61,7 +61,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="Hnb-OJ-SzN" id="lI3-Sl-gRB"/>
+                        <outlet property="searchDisplayController" destination="ACQ-uF-CJb" id="XHt-qE-cHh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbq-7H-R7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,8 +73,24 @@
                         <outlet property="searchResultsDelegate" destination="99d-Lb-i3T" id="ZGN-0c-gim"/>
                     </connections>
                 </searchDisplayController>
+                <searchDisplayController id="2pG-fS-fHU">
+                    <connections>
+                        <outlet property="delegate" destination="99d-Lb-i3T" id="mLL-9Z-IHA"/>
+                        <outlet property="searchContentsController" destination="99d-Lb-i3T" id="YZ0-iI-hlf"/>
+                        <outlet property="searchResultsDataSource" destination="99d-Lb-i3T" id="wsB-bh-JyA"/>
+                        <outlet property="searchResultsDelegate" destination="99d-Lb-i3T" id="ziX-lV-yxb"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="ACQ-uF-CJb">
+                    <connections>
+                        <outlet property="delegate" destination="99d-Lb-i3T" id="yfJ-Kp-vMI"/>
+                        <outlet property="searchContentsController" destination="99d-Lb-i3T" id="tza-8L-ijw"/>
+                        <outlet property="searchResultsDataSource" destination="99d-Lb-i3T" id="a2u-ow-e5q"/>
+                        <outlet property="searchResultsDelegate" destination="99d-Lb-i3T" id="0Hi-1U-OQi"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="380" y="295"/>
+            <point key="canvasLocation" x="344" y="223"/>
         </scene>
         <!--New Math Man-->
         <scene sceneID="tne-QT-ifu">

@@ -76,11 +76,11 @@
 
 
 #pragma mark - Actions
- 
+
 
 - (IBAction)selectImageFromPhotoLibrary:(UITapGestureRecognizer *)sender {
     // Hide the keyboard.
-   [ _nameTextField resignFirstResponder ];
+    [ _nameTextField resignFirstResponder ];
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     // Only allow photos to be picked, not taken.
     ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -106,15 +106,15 @@
 }
 
 - (void) checkValidMealName {
-  // Disable the Save button if the text field is empty.
- //   NSString * text = (self.nameTextField.text != nil) ? self.nameTextField.text : "";
+    // Disable the Save button if the text field is empty.
+    //   NSString * text = (self.nameTextField.text != nil) ? self.nameTextField.text : "";
     NSString * text = self.nameTextField.text ;
     self.saveButton.enabled = !([text length] == 0 );
-
+    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-   
+    
     [self checkValidMealName ];
     self.navigationItem.title = self.nameTextField.text;
     
@@ -127,9 +127,9 @@
     NSUInteger * year = [_yearOfBirth.text integerValue];
     UIImage *  photo = _photoImagView.image;
     // Set the manMath to be passed to ManMathTableViewController after the unwind segue.
-   // self.man = [[MathMan alloc] initWithName: name photo: @"Turing" andYear: year];
+    // self.man = [[MathMan alloc] initWithName: name photo: @"Turing" andYear: year];
     self.man = [[MathMan alloc] initWithName: name photoImage: _photoImagView.image andYear: year];
-   
+    
     
     
 }
@@ -139,7 +139,7 @@
     
     UINavigationController*  isPresentingInAddMathManMode =  (UINavigationController *) self.presentingViewController ;
     if (isPresentingInAddMathManMode) {
-    
+        
         [self dismissViewControllerAnimated:TRUE completion:nil];
     } else {
         [self.navigationController popViewControllerAnimated:TRUE ];

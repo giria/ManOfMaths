@@ -10,4 +10,10 @@
 
 @interface MathManTableViewController : UITableViewController
 
+@property (nonatomic, strong) UISearchController * searchController;
+@property (nonatomic, strong) NSMutableArray * allItems;
+@property (nonatomic, strong) NSMutableArray * filteredItems;
+@property (nonatomic, strong) NSMutableArray * displayedItems;
+
+
 @end
