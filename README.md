@@ -4,12 +4,12 @@ First we will deal with the table: we will present a list of world-famous mathem
 
 
 
-
-<img src="/images/table.PNG" alt="Drawing" width="300">
-
+<kbd>
+<img src="/images/table.PNG" alt="Drawing" width="300" border="1">
+</kbd>
 After we have an editable and serializable list we can add the search functionality.
 
-Here is the complete list of code task (work in progress) to complete the task
+Following is the complete list of code tasks to complete the exercize.
 
 
   **Build the screen to add/edit a Mathematician**
