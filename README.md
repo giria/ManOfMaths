@@ -1,10 +1,11 @@
 # ManOfMaths
 
-First we will deal with the table: we will present a list a famous mathematicians
+First we will deal with the table: we will present a list of world-famous mathematicians
 
 
 
 <img src="/images/table.PNG" alt="Drawing" style="width: 100px;"/>
+<img src="/images/table.PNG" alt="Drawing" width="100">
 
 After we have an editable and serializable list we can add the search functionality.
 
@@ -43,6 +44,6 @@ We will need to save a mathematician list across app sessions. We'll use NSCodin
 
 **Implement the search behaviour**
 
-We will use the UISearchController.
+We will use the UISearchController class.
 
 
