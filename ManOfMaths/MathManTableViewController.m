@@ -32,7 +32,7 @@
     
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    [self loadSampleMathMen];
+    //[self loadSampleMathMen];
     
     // Load any saved men, otherwise load sample data.
     
@@ -73,17 +73,21 @@
 - (void) loadSampleMathMen {
     
     self.allItems =  [[NSMutableArray alloc] init];
-    MathMan* turing = [[MathMan alloc]initWithName:@"Alan Turing" photo:@"Turing" andYear:1920 ];
+    MathMan* turing = [[MathMan alloc]initWithName:@"Alan Turing" photo:@"Turing" andYear:1912 ];
     [self.allItems addObject: turing];
-    MathMan* newton = [[MathMan alloc]initWithName:@"Isaac Newton" photo:@"Newton" andYear:1710 ];
+    MathMan* newton = [[MathMan alloc]initWithName:@"Isaac Newton" photo:@"Newton" andYear:1643 ];
     [self.allItems addObject: newton];
-    MathMan* vonNeumann = [[MathMan alloc]initWithName:@"John von Neumann" photo:@"vonNeumann" andYear:1927 ];
+    MathMan* vonNeumann = [[MathMan alloc]initWithName:@"John von Neumann" photo:@"vonNeumann" andYear:1903 ];
     [self.allItems addObject: vonNeumann];
-    MathMan* ramanujan = [[MathMan alloc]initWithName:@"Srinivasa Ramanujan" photo:@"Ramanujan" andYear:1909 ];
+    MathMan* ramanujan = [[MathMan alloc]initWithName:@"Srinivasa Ramanujan" photo:@"Ramanujan" andYear:1903 ];
     [self.allItems addObject:ramanujan];
+    MathMan* hardy = [[MathMan alloc]initWithName:@"G.H. Hardy" photo:@"Hardy" andYear:1887 ];
+    [self.allItems addObject:hardy];
     
+    MathMan* godel = [[MathMan alloc]initWithName:@"Kurt Godel" photo:@"Godel" andYear:1906 ];
+    [self.allItems addObject:godel];
     
-    
+    self.displayedItems = self.allItems;
 }
 
 - (void)didReceiveMemoryWarning {
