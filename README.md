@@ -17,7 +17,7 @@ We will build a screen with two TextFields and a UIImage, on the textfield the u
 name and year of birth of the mathematician. We will add a GestureRecognizer in order to get a photo of the 
 users photo library.
 
-**Build the TableList **
+**Build the TableList**
 
 This screen will present the list of the mathematicians. Note that we will need to create a CustomCell.
 
